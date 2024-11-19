@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VERSÃO 1 - ATIVIDADE 1</title>
+</head>
+<body>
+    <script>
+        function calcularMedia() {
+            const nota1 = parseFloat(prompt("Digite a primeira nota:"));
+            const nota2 = parseFloat(prompt("Digite a segunda nota:"));
+
+            const media = (nota1 + nota2) / 2;
+
+            const resultado = document.getElementById("resultado");
+            const situacao = document.getElementById("situacao");
+
+            resultado.textContent = `Média: ${media.toFixed(2)}`;
+
+            if (media >= 6) {
+                situacao.textContent = "Aprovado";
+                situacao.style.color = "blue";
+            } else {
+                situacao.textContent = "Reprovado";
+                situacao.style.color = "red";
+            }
+        }
+
+        calcularMedia();
+    </script>
+</body>
+</html>

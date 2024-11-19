@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adicionando Itens à Lista</title>
+</head>
+<body>
+  <input type="text" id="newItem" placeholder="Digite o item">
+  <br>
+  <input type="radio" name="cores" value="red"> Vermelho
+  <input type="radio" name="cores" value="green"> Verde
+  <input type="radio" name="cores" value="blue"> Azul
+  <br>
+  <button onclick="addItem()">Adicionar</button>
+  <ul id="myList"></ul>
+
+  <script>
+    function addItem() {
+      const newItemText = document.getElementById('newItem').value;
+      const selectedColor = document.querySelector('input[name="cores"]:checked').value;
+
+      const ul = document.getElementById('myList');
+      const li = document.createElement('li');
+      li.textContent = newItemText;
+      li.style.color = selectedColor;
+
+      ul.appendChild(li);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de IMC</title>
+    <style>
+        .resultado {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .normal {
+            color: green;
+        }
+        .alerta {
+            color: orange;
+        }
+        .perigo {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <label for="peso">Peso (kg):</label>
+    <input type="number" id="peso">
+    <br>
+    <label for="altura">Altura (m):</label>
+    <input type="number" id="altura">
+    <button onclick="calcularIMC()">Calcular</button>
+    <div id="resultado"></div>
+    <script>
+        function calcularIMC() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+
+            const imc = peso / (altura * altura);
+            document.getElementById('resultado').textContent = `Seu IMC é: ${imc.toFixed(2)}`;
+
+            let classificacao;
+            if (imc < 18.5) {
+                classificacao = 'abaixo do peso';
+                cor = 'alerta';
+            } else if (imc < 25) {
+                classificacao = 'normal';
+                cor = 'normal';
+            } else if (imc < 30) {
+                classificacao = 'sobrepeso';
+                cor = 'alerta';
+            } else if (imc < 35) {
+                classificacao = 'obesidade grau I';
+                cor = 'perigo';
+            } else if (imc < 40) {
+                classificacao = 'obesidade grau II';
+                cor = 'perigo';
+            } else {
+                classificacao = 'obesidade grau III';
+                cor = 'perigo';
+            }
+
+            document.getElementById('resultado').innerHTML += `<br>Classificação: <span class="${cor}">${classificacao}</span>`;
+        }
+    </script>
+</body>
+</html>
